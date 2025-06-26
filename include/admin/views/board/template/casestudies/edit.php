@@ -37,62 +37,6 @@
 						<input type="hidden" name="name" value="<?=$rs[0]['name']?>" />
 						<input type="hidden" id="mode" name="mode" value="<?=$_GET['mode']?>" />
 						<input type="hidden" name="no" value="<?=$rs[0]['no']?>">
-						<? if($_GET['mode'] == "update"){ ?>
-							<div class="form-group">
-								<label class="col-md-3 control-label">비밀번호</label>
-								<div class="col-md-9">
-									<input type="text" class="form-control" name="features_password" placeholder="" value="" required="required" />
-								</div>
-							</div>
-							<hr />
-						<? } ?>
-						<? if($_GET['mode'] == "update"){ ?>
-						<input type="hidden" name="tmp10" value="<?=$rs[0]['tmp10']?>">
-						<? } ?>
-						<? if($_GET['mode'] == "update"){ ?>
-						<div class="form-group">
-							<label class="col-md-3 control-label">고유 주소</label>
-							<div class="col-md-9">
-								<input type="text" class="form-control" name="permalink" placeholder="고유주소" value="<?=$rs[0]['permalink']?>" />
-							</div>
-						</div>
-						<? } ?>
-						<div class="form-group">
-							<label class="col-md-3 control-label">Meta: Title</label>
-							<div class="col-md-9">
-								<input type="text" class="form-control" name="meta_title" placeholder="Meta: Title" value="<?=$rs[0]['meta_title']?>" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-md-3 control-label">Meta: Description</label>
-							<div class="col-md-9">
-								<textarea class="form-control" name="meta_description" rows="4" placeholder="Meta: Description" data-text-byte-target="true"><?=$rs[0]['meta_description']?></textarea>
-								<span class="absolute_byte_info" data-text-byte-info="true">( 0 Chars )</span>
-							</div>
-						</div>
-						<hr />
-						<? if($_GET['mode'] == "update"){ ?>
-						<div class="form-group">
-							<label class="col-md-3 control-label">등록 날짜</label>
-							<div class="col-md-9">
-								<input type="text" class="form-control" name="regDate" placeholder="제목" value="<?=$rs[0]['regDate']?>" />
-							</div>
-						</div>
-						<? } ?>
-						<div class="form-group">
-							<label class="col-md-3 control-label">비공개</label>
-							<div class="col-md-9">
-								<div class="checkbox"><label><input type="checkbox" name="isSecret" value="Y" <?=(($rs[0]['isSecret'] == 'Y') ? 'checked' : '')?>>설정</label></div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-md-3 control-label">TOPIC</label>
-							<div class="col-md-9">
-								<? foreach($cfg['board']['category'][$_GET['board']] as $key => $value){ ?>
-									<label class="checkbox-inline"><input type="checkbox" name="category[]" value="<?=$key?>" <?=((strpos($rs[0]['category'], $key) !== false) ? 'checked' : '')?>><?=$value?></label>
-								<? } ?>
-							</div>
-						</div>							
 						<div class="form-group">
 							<label class="col-md-3 control-label">제목</label>
 							<div class="col-md-9">
@@ -239,15 +183,6 @@
 									</div>
 								</div>
 							</div>
-						<? } ?>
-						<? if($_GET['mode'] == "create"){ ?>
-						<hr />
-						<div class="form-group">
-							<label class="col-md-3 control-label">구독 메일 발송</label>
-							<div class="col-md-9">
-								<div class="checkbox"><label><input type="checkbox" name="tmp10" value="Y" checked>구독<b>(<?=$subscribe['cnt']?>명)</b> 메일을 발송합니다.</label></div>
-							</div>
-						</div>
 						<? } ?>
 					</div>
 					<div class="panel-footer">

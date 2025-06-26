@@ -40,7 +40,7 @@
                                 <a href="<?=$pageDir?>?v=<?=$row['no']?>">
                                     <div class="list_div">
                                         <div class="title_con">
-                                            <span><?=$row['subject']?></span>
+                                            <span>{{<?=$row['subject']?>}}</span>
                                         </div>
                                         <div class="img_con">
                                             <img src="<?=$row['files'][0]['originalSrc']?>" alt="logo" >
@@ -50,25 +50,25 @@
                                                 <li>
                                                     <div class="list_div">
                                                         <div class="img_con"><img src="/include_sg/images/sub/results_sub01_list_con_list_con_icon01.svg" alt="icon" ></div>
-                                                        <div class="text01_con"><span><span class="color_text">Technology :</span> <?=$row['tmp1']?></span></div>
+                                                        <div class="text01_con"><span><span class="color_text">Technology :</span> {{<?=$row['tmp1']?>}}</span></div>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="list_div">
                                                         <div class="img_con"><img src="/include_sg/images/sub/results_sub01_list_con_list_con_icon02.svg" alt="icon" ></div>
-                                                        <div class="text01_con"><span><span class="color_text">Market :</span> <?=$row['tmp2']?></span></div>
+                                                        <div class="text01_con"><span><span class="color_text">Market :</span> {{<?=$row['tmp2']?>}}</span></div>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="list_div">
                                                         <div class="img_con"><img src="/include_sg/images/sub/results_sub01_list_con_list_con_icon03.svg" alt="icon" ></div>
-                                                        <div class="text01_con"><span><span class="color_text">Project :</span> <?=$row['tmp3']?></span></div>
+                                                        <div class="text01_con"><span><span class="color_text">Project :</span> {{<?=$row['tmp3']?>}}</span></div>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="list_div">
                                                         <div class="img_con"><img src="/include_sg/images/sub/results_sub01_list_con_list_con_icon04.svg" alt="icon" ></div>
-                                                        <div class="text01_con"><span><span class="color_text">Result :</span> <?=$row['tmp4']?></span></div>
+                                                        <div class="text01_con"><span><span class="color_text">Result :</span> {{<?=$row['tmp4']?>}}</span></div>
                                                     </div>
                                                 </li>
                                             </ul>
