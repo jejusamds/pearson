@@ -9,6 +9,16 @@ $pageDir = "/results/casestudies/";
 
 $boardCoreOnly = true;
 include_once __DIR__ . "/../board/board.core.php";
+if ($_GET['v'] != "" || $_GET['pl'] != "") {
+    if ($_COOKIE[md5("cki_".$boardName."_".$self['no']."_hit")] != base64_encode($self['no'])) {
+        try {
+            Queryi("UPDATE $tableName SET hit = hit + 1 WHERE no = ?", array($self['no']));
+        } catch (PDOException $e) {
+            // do nothing on error
+        }
+        setcookie(md5("cki_".$boardName."_".$self['no']."_hit"), base64_encode($self['no']), time() + (86400 * 36500), "/", $_SERVER["SERVER_NAME"]);
+    }
+}
 include_once __DIR__ . "/../../header.php";
 ?>
 <div class="sub_content_wrap">

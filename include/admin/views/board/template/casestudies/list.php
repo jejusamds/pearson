@@ -81,7 +81,7 @@
 									<td><?=$row['hit']?></td>
 									<td><?=$row['regDate']?></td>
 									<td>
-										<a href="board_edit.php?mode=update&no=<?=$row['no']?><?=$qstr?><?=$_GET['page']?>" class="btn btn-xs btn-info m-r-5">수정</a>
+                                                                       <a href="board_edit.php?board=<?=$_GET['board']?>&mode=update&no=<?=$row['no']?><?=$qstr?><?=$_GET['page']?>" class="btn btn-xs btn-info m-r-5">수정</a>
 										<? if($_SESSION['userLevel'] > 100){ ?>
 										<form action="board_process.php" method="post" style="display: inline;" class="delete-confirm">
 											<input type="hidden" name="board" value="<?=$_GET['board']?>" />
