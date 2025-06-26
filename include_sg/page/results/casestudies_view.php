@@ -70,7 +70,9 @@ include_once __DIR__ . "/../../header.php";
                                 </li>
                             </ul>
                         </div>
-                        <?php if ($self['files'][3]['realName']) { ?>
+                        <?php 
+                        
+                        if ($self['files'][2]['realName']) { ?>
                             <div class="file_con">
 
                                 <a
