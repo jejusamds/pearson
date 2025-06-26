@@ -73,7 +73,7 @@
 				$latest[$k]['files'][$temp[$j]['seq'] - 1]['thumbnailSrc'] = $fileDirectory."/thumbnail/thumbnail_".$temp[$j]['saveName'];
 			}
 
-			if($boardName == "insights_sg" || $boardName == "insights_en" || $boardName == "insights" || $boardName == "testimonials_en"){
+               if($boardName == "insights_sg" || $boardName == "insights_en" || $boardName == "insights" || $boardName == "testimonials_en" || $boardName == "casestudies_en" || $boardName == "casestudies_kr" || $boardName == "testimonials_kr"){
 				if($latest[$k]['files'][1]['originalSrc'] == "" && in_array($boardName, $cfg['board']['no_image'])){
 					$latest[$k]['files'][1]['originalSrc'] = $cfg['baseUrl']."/images/no_image.png";
 				}
@@ -110,7 +110,7 @@
 			array_push($params, "%".$_GET['sw']."%");
 		}
 
-		if($boardName == "insights_sg" || $boardName == "insights_en" || $boardName == "insights" || $boardName == "testimonials_en"){
+           if($boardName == "insights_sg" || $boardName == "insights_en" || $boardName == "insights" || $boardName == "testimonials_en" || $boardName == "casestudies_en" || $boardName == "casestudies_kr" || $boardName == "testimonials_kr"){
 			// <301 Redirect + 카테고리 Static URL>
 			if(!$isAsync){
 				if($_GET['c'] != ""){

@@ -47,22 +47,25 @@
 	*/
 	$cfg['board'] = array(
 		"password_check_board" => array("insights", "insights_en", "insights_sg", "insights_uk_kr"),
-		"type_sg_kr" => array(
-			"faq" => "FAQ",
-			"insights" => "Insights",
-			"download" => "download",
-			"inquiry" => "문의하기",
-			"subscribe" => "Subscribe to the newsletter",
-			"download_log" => "다운로드 로그(국문)",
-		),
-		"type_sg_en" => array(
-			"faq_en" => "FAQ",
-			"insights_en" => "Insights",
-			"download_en" => "download",
-			"testimonials_en" => "Testimonials",
-			"inquiry_en" => "문의하기",
-			"subscribe_en" => "Subscribe to the newsletter"
-		),
+                "type_sg_kr" => array(
+                        "faq" => "FAQ",
+                        "insights" => "Insights",
+                        "download" => "download",
+                        "inquiry" => "문의하기",
+                        "subscribe" => "Subscribe to the newsletter",
+                        "download_log" => "다운로드 로그(국문)",
+                        "casestudies_kr" => "Case Studies",
+                        "testimonials_kr" => "Testimonials"
+                ),
+                "type_sg_en" => array(
+                        "faq_en" => "FAQ",
+                        "insights_en" => "Insights",
+                        "download_en" => "download",
+                        "testimonials_en" => "Testimonials",
+                        "casestudies_en" => "Case Studies",
+                        "inquiry_en" => "문의하기",
+                        "subscribe_en" => "Subscribe to the newsletter"
+                ),
 		"type_kr_en" => array(
 			"faq_sg" => "FAQ",
 			"insights_sg" => "Insights",
@@ -166,15 +169,18 @@
 				"inve" => "Investment",
 				"live" => "Living in Singapore",
 			),
-			"inquiry_en" => array(
-				"corp" => "Incorporation",
-				"bank" => "Bank Account",
-				"tax" => "Tax",
-				"partner" => "Accounting",
-				"visa" => "Visa",
-				"etc" => "Others"
-			),
-		),
+                       "inquiry_en" => array(
+                               "corp" => "Incorporation",
+                               "bank" => "Bank Account",
+                               "tax" => "Tax",
+                               "partner" => "Accounting",
+                               "visa" => "Visa",
+                               "etc" => "Others"
+                       ),
+                       "casestudies_kr" => array(),
+                       "casestudies_en" => array(),
+                       "testimonials_kr" => array(),
+                ),
 		"skin" => array(
 			"list" => array(
 				"faq" => "faq",
@@ -187,16 +193,24 @@
 				"insights_uk_kr" => "insights",
 				"download" => "download",
 				"download_en" => "download",
-				"download_sg" => "download",
-				"download_uk_kr" => "download",
-			),
-			"view" => array(
-				"insights" => "insights",
-				"insights_en" => "insights",
-				"insights_sg" => "insights",
-				"insights_uk_kr" => "insights",
-			)
-		),
+                               "download_sg" => "download",
+                               "download_uk_kr" => "download",
+                               "casestudies_kr" => "casestudies",
+                               "casestudies_en" => "casestudies",
+                               "testimonials_en" => "testimonials",
+                               "testimonials_kr" => "testimonials",
+                        ),
+                        "view" => array(
+                                "insights" => "insights",
+                                "insights_en" => "insights",
+                                "insights_sg" => "insights",
+                                "insights_uk_kr" => "insights",
+                                "casestudies_kr" => "insights",
+                                "casestudies_en" => "insights",
+                                "testimonials_en" => "insights",
+                                "testimonials_kr" => "insights",
+                        )
+                ),
 		"thumbnail" =>  array(
 			"sample" => array(array("width" => 150, "height" => 150))
 		),
@@ -251,12 +265,24 @@
 				"itemMax" => 4,
 				"blockMax" => 5
 			),
-			"insights_en" => array(
-				"itemMax" => 4,
-				"blockMax" => 5
-			),
-		),
-		"qstr" => array(
+                       "insights_en" => array(
+                               "itemMax" => 4,
+                               "blockMax" => 5
+                       ),
+                       "casestudies_kr" => array(
+                               "itemMax" => 4,
+                               "blockMax" => 5
+                       ),
+                       "casestudies_en" => array(
+                               "itemMax" => 4,
+                               "blockMax" => 5
+                       ),
+                       "testimonials_kr" => array(
+                               "itemMax" => 4,
+                               "blockMax" => 5
+                       ),
+                ),
+                "qstr" => array(
 			"faq" => array("board", "search"),
 			"insights" => array("board", "search"),
 			"download" => array("board", "search"),
@@ -268,11 +294,14 @@
 			"inquiry_sg" => array("board", "search"),
 			"subscribe_sg" => array("board", "search"),
 			"faq_en" => array("board", "search"),
-			"insights_en" => array("board", "search"),
-			"download_en" => array("board", "search"),
-			"inquiry_en" => array("board", "search"),
-			"subscribe_en" => array("board", "search"),
-			"faq_uk_kr" => array("board", "search"),
+                       "insights_en" => array("board", "search"),
+                       "download_en" => array("board", "search"),
+                       "inquiry_en" => array("board", "search"),
+                       "subscribe_en" => array("board", "search"),
+                       "casestudies_kr" => array("board", "search"),
+                       "casestudies_en" => array("board", "search"),
+                       "testimonials_kr" => array("board", "search"),
+                       "faq_uk_kr" => array("board", "search"),
 			"insights_uk_kr" => array("board", "search"),
 			"download_uk_kr" => array("board", "search"),
 			"inquiry_uk_kr" => array("board", "search"),
@@ -291,17 +320,23 @@
 			"download_uk_kr",
 			"faq",
 			"faq_en",
-			"faq_sg",
-			"faq_uk_kr",
-			"testimonials_en"
-		),
-		"meta_table" => array(
-			"insights",
-			"insights_en",
-			"insights_sg",
-			"insights_uk_kr",
-			"testimonials_en"
-		)
+                       "faq_sg",
+                       "faq_uk_kr",
+                       "testimonials_en",
+                       "casestudies_kr",
+                       "casestudies_en",
+                       "testimonials_kr"
+                ),
+                "meta_table" => array(
+                       "insights",
+                       "insights_en",
+                       "insights_sg",
+                       "insights_uk_kr",
+                       "testimonials_en",
+                       "casestudies_kr",
+                       "casestudies_en",
+                       "testimonials_kr"
+                )
 	);
 
 	$detect = new Mobile_Detect;
