@@ -99,6 +99,30 @@
 								<input type="text" class="form-control" name="subject" placeholder="제목" value="<?=$rs[0]['subject']?>" />
 							</div>
 						</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">Technology</label>
+    <div class="col-md-9">
+        <input type="text" class="form-control" name="tmp1" placeholder="Technology" value="<?=$rs[0]['tmp1']?>" />
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">Market</label>
+    <div class="col-md-9">
+        <input type="text" class="form-control" name="tmp2" placeholder="Market" value="<?=$rs[0]['tmp2']?>" />
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">Project</label>
+    <div class="col-md-9">
+        <input type="text" class="form-control" name="tmp3" placeholder="Project" value="<?=$rs[0]['tmp3']?>" />
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-3 control-label">Result</label>
+    <div class="col-md-9">
+        <input type="text" class="form-control" name="tmp4" placeholder="Result" value="<?=$rs[0]['tmp4']?>" />
+    </div>
+</div>
 						<? for($i = 0; $i < 1; $i++){ ?>
 							<div class="form-group isMultiFileGroup">
 								<label class="col-md-3 control-label">
