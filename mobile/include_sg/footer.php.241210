@@ -1,0 +1,214 @@
+</div>
+<footer>
+	<? if(!$isMain){ ?>
+		<div class="btn_canvas_wrap">
+			<div class="btn_title" data-inquiry-open-btn="true"></div>
+			<canvas id="btnCanvas"></canvas>
+		</div>
+	<? } ?>
+
+	<!-- 다운로드 클릭시 팝업 추가 회사 ip에서 노출 중-->
+	<? if($_SERVER['REMOTE_ADDR'] == '112.220.18.234'){ ?>
+	<div class="downwrap">
+		<p class="gray year">2020</p>
+		<p class="guide"> <img src="<?=$cfg['baseUrl']?>/images/main/down_text.png" alt=""></p>
+		<p class="gray ko">Get the latest information for your successful business in Korea.</p>
+		<? if($isMain){?>
+		<a href="javascript:download_popup();">download</a>
+		<?}else{?>
+		<a href="<?=$cfg['href']?>/download/" >download</a>
+		<?}?>
+
+		<div class="popup_con_bg"></div>
+		<div class="popup_con">
+			<div class="contents_con">
+				<div class="top_con">
+					<div class="txt_con">
+						<div class="title_con">
+							<span>
+								A Guide to Doing Business in Korea
+							</span>
+						</div>
+
+						<div class="text_con">
+							<span>
+								From starting business in Korean <br>
+								and settling down, this guide provides you <br>
+								free information to ease your way <br>
+								to a successful business.
+							</span>
+						</div>
+					</div>
+
+					<div class="btn_con">
+						<a href="javascript:download_popup();">
+							<img src="<?=$cfg['baseUrl']?>/images/main/popup_closed_btn.png" alt="닫기" >
+						</a>
+					</div>
+				</div>
+
+				<div class="list_con">
+					<form action="" method="" autocomplete="off">
+						<ul>
+							<li class="depth_2">
+								<div class="list_div">
+									<div class="input_con">
+										<div class="title_con">
+											<span>
+												First Name
+											</span>
+										</div>
+
+										<div class="input_con">
+											<input type="text" name="" placeholder="ex. Hong">
+										</div>
+									</div>
+
+									<div class="input_con">
+										<div class="title_con">
+											<span>
+												Last Name
+											</span>
+										</div>
+
+										<div class="input_con">
+											<input type="text" name="" placeholder="ex. Gil Dong">
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="list_div">
+									<div class="input_con">
+										<div class="title_con">
+											<span>
+												Company
+											</span>
+										</div>
+
+										<div class="input_con">
+											<input type="text" name="" placeholder="ex. Pearson & Partners">
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="list_div">
+									<div class="input_con">
+										<div class="title_con">
+											<span>
+												E-Mail
+											</span>
+										</div>
+
+										<div class="input_con">
+											<input type="text" name="" placeholder="ex. pearson@gmail.com">
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</form>
+				</div>
+
+				<div class="btn_con">
+					<a href="<?=$cfg['baseUrl']?>/images/common/guide_to_korea.pdf" target="_blank">
+						Download
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<? } ?>
+
+	<div class="downwrap">
+		<p class="gray year">2020</p>
+		<p class="guide"> <img src="<?=$cfg['baseUrl']?>/images/main/down_text.png" alt=""></p>
+		<p class="gray ko">Get the latest information for your successful business in Korea.</p>
+		<? if($isMain){?>
+		<a href="<?=$cfg['baseUrl']?>/images/common/guide_to_korea.pdf" download>download</a>
+		<?}else{?>
+		<a href="<?=$cfg['href']?>/download/" >download</a>
+		<?}?>
+	</div>
+
+	<? if($isMain){ ?>
+	<div class="client_container">
+		<h2>OUR PARTNERS</h2>
+		<ul class="client_inner">
+			<? foreach($cfg['main']['our_partners'] as $key => $value){ ?>
+			<li class="client_item"><img src="<?=$cfg['baseUrl']?>/images/main/<?=$value['img']?>" alt="<?=$value['title']?>" /></li>
+			<? } ?>
+		</ul>
+	</div>
+	<? } ?>
+
+	<div class="inputwrap">
+		<p>Subscribe to the newsletter</p>
+		<span>Stay ahead with our latest insights.</span>
+		<form method="post" action="<?=$cfg['href']?>/subscribe/" id="subscribeForm">
+			<fieldset>
+				<legend></legend>
+				<input type="text" name="sc_mail" placeholder="EMAIL" id="subscribeEmail"/>
+				<input type="hidden" id="subscribeToken" name="subscribe_token" value= "" />
+				<button type="submit">SIGN UP</button>
+			</fieldset>
+		</form>
+		<div class="loca">
+			<a href="<?=$cfg['href']?>/contactus/">
+				<img src="<?=$cfg['baseUrl']?>/images/common/main_footer_map_mobile_sg_240828.png" alt="피어슨 앤 파트너스의 위치를 표시한 지도"/>
+			</a>
+			<span class="add">427 Teheran Road, Gangnam, Seoul, South Korea<br>
+			TEL : +82-2-6956-7872<!--<br>
+			E-Mail : info@pearsonkorea.com</span>-->
+		</div>
+		<p class="copy">COPYRIGHT 2020 Pearson & Partners.<br>
+		ALL RIGHTS RESERVED.</p>
+	</div>
+
+	<div class="snswrap">
+		<a href="https://medium.com/@pearsonpartners.global" target="_blank">미디움</a>
+		<a href="https://www.linkedin.com/company/pearsonpartners" target="_blank">링크드인</a>
+		<a href="https://www.facebook.com/pearsonandpartners" target="_blank">페이스북</a>
+		<a href="https://www.instagram.com/pearson.partners/" target="_blank">인스타그램</a>
+		<a href="http://twitter.com/partnerspearson" target="_blank">트위터</a>
+		<a href="https://www.youtube.com/channel/UCKRDWA1zFMrUAVE83YDZylw?view_as=subscriber" target="_blank">유투브</a>
+	</div>
+</footer>
+</div>
+
+<script type="text/javascript" language="javascript">
+	// 팝업 스크립트
+	function download_popup() {
+		if( $(".popup_con").css("display") == "none" ){
+			$(".popup_con_bg").fadeIn();
+			$(".popup_con").fadeIn();
+		}else{
+			$(".popup_con_bg").fadeOut();
+			$(".popup_con").fadeOut();
+		}
+	}
+</script>
+
+<script>
+	grecaptcha.ready(function() {
+		grecaptcha.execute('6LekXKMUAAAAAM4lNwcQQSiSdzcRHt6QKP9k4Kyv', {action: '<?=$cfg['href']?>/subscribe/'}).then(function(token){
+			$("#subscribeToken").val(token);
+		});
+		grecaptcha.execute('6LekXKMUAAAAAM4lNwcQQSiSdzcRHt6QKP9k4Kyv', {action: '<?=$cfg['href']?>/contactus/'}).then(function(token){
+			$(".contactToken").val(token);
+		});
+	});
+</script>
+
+<style>
+.grecaptcha-badge { display: none; }
+</style>
+
+<? include_once __DIR__."/page/contactus.form.php"; ?>
+
+<!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/7904967.js"></script>
+<!-- End of HubSpot Embed Code -->
+</body>
+</html>

@@ -1,0 +1,112 @@
+RewriteEngine On
+
+<IfModule mod_url.c>
+CheckURL On
+ServerEncoding UTF-8
+ClientEncoding UTF-8
+</IfModule>
+
+# https Redirect
+RewriteCond %{HTTPS} off
+RewriteCond %{REQUEST_URI} !^.*\.(woff2|woff|ttf|js|css|gif|jpg|png|ico|php)$
+RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [R,L]
+
+# addslash RewriteRule
+RewriteCond %{REQUEST_URI} !(/$|\.)
+RewriteRule (.*) %{REQUEST_URI}/ [R=301,L]
+
+# korea redirect
+RewriteCond %{HTTP_HOST} !^pearsonsingapore.com$
+RewriteCond %{HTTP_HOST} !^www.pearsonsingapore.com$
+RewriteCond %{HTTP_HOST} !^www.pearsonp\.com$
+RewriteCond %{HTTP_HOST} !^pearsonp\.com$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^insights/category\/(.*)\/$ include_sg/page/insights.php?cpl=$1 [L]
+RewriteCond %{HTTP_HOST} !^pearsonsingapore.com$
+RewriteCond %{HTTP_HOST} !^www.pearsonsingapore.com$
+RewriteCond %{HTTP_HOST} !^www.pearsonp\.com$
+RewriteCond %{HTTP_HOST} !^pearsonp\.com$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^insights/(.*)\/$ include_sg/page/insights.php?pl=$1 [L]
+RewriteCond %{HTTP_HOST} !^pearsonsingapore.com$
+RewriteCond %{HTTP_HOST} !^www.pearsonsingapore.com$
+RewriteCond %{HTTP_HOST} !^www.pearsonp\.com$
+RewriteCond %{HTTP_HOST} !^pearsonp\.com$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)\/(.*)\/(.*)\/$ include_sg/page/$1/$2/$3.php [L]
+RewriteCond %{HTTP_HOST} !^pearsonsingapore.com$
+RewriteCond %{HTTP_HOST} !^www.pearsonsingapore.com$
+RewriteCond %{HTTP_HOST} !^www.pearsonp\.com$
+RewriteCond %{HTTP_HOST} !^pearsonp\.com$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)\/(.*)\/$ include_sg/page/$1/$2.php [L]
+RewriteCond %{HTTP_HOST} !^pearsonsingapore.com$
+RewriteCond %{HTTP_HOST} !^www.pearsonsingapore.com$
+RewriteCond %{HTTP_HOST} !^www.pearsonp\.com$
+RewriteCond %{HTTP_HOST} !^pearsonp\.com$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)\/$ include_sg/page/$1.php [L]
+
+# Singapore redirect
+RewriteCond %{HTTP_HOST} !^pearsonsingapore.com$
+RewriteCond %{HTTP_HOST} !^www.pearsonsingapore.com$
+RewriteCond %{HTTP_HOST} !^www.pearsonkorea\.com$
+RewriteCond %{HTTP_HOST} !^pearsonkorea\.com$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^insights/category\/(.*)\/$ include_kr/page/insights.php?cpl=$1 [L]
+RewriteCond %{HTTP_HOST} !^pearsonsingapore.com$
+RewriteCond %{HTTP_HOST} !^www.pearsonsingapore.com$
+RewriteCond %{HTTP_HOST} !^www.pearsonkorea\.com$
+RewriteCond %{HTTP_HOST} !^pearsonkorea\.com$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^insights/(.*)\/$ include_kr/page/insights.php?pl=$1 [L]
+RewriteCond %{HTTP_HOST} !^pearsonsingapore.com$
+RewriteCond %{HTTP_HOST} !^www.pearsonsingapore.com$
+RewriteCond %{HTTP_HOST} !^www.pearsonkorea\.com$
+RewriteCond %{HTTP_HOST} !^pearsonkorea\.com$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)\/(.*)\/(.*)\/$ include_kr/page/$1/$2/$3.php [L]
+RewriteCond %{HTTP_HOST} !^pearsonsingapore.com$
+RewriteCond %{HTTP_HOST} !^www.pearsonsingapore.com$
+RewriteCond %{HTTP_HOST} !^www.pearsonkorea\.com$
+RewriteCond %{HTTP_HOST} !^pearsonkorea\.com$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)\/(.*)\/$ include_kr/page/$1/$2.php [L]
+RewriteCond %{HTTP_HOST} !^pearsonsingapore.com$
+RewriteCond %{HTTP_HOST} !^www.pearsonsingapore.com$
+RewriteCond %{HTTP_HOST} !^www.pearsonkorea\.com$
+RewriteCond %{HTTP_HOST} !^pearsonkorea\.com$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)\/$ include_kr/page/$1.php [L]
+
+# English redirect
+RewriteCond %{HTTP_HOST} !^www.pearsonp\.com$
+RewriteCond %{HTTP_HOST} !^pearsonp\.com$ [NC]
+RewriteCond %{HTTP_HOST} !^www.pearsonkorea\.com$
+RewriteCond %{HTTP_HOST} !^pearsonkorea\.com$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^insights/category\/(.*)\/$ include_en/page/insights.php?cpl=$1 [L]
+RewriteCond %{HTTP_HOST} !^www.pearsonp\.com$
+RewriteCond %{HTTP_HOST} !^pearsonp\.com$ [NC]
+RewriteCond %{HTTP_HOST} !^www.pearsonkorea\.com$
+RewriteCond %{HTTP_HOST} !^pearsonkorea\.com$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^insights/(.*)\/$ include_en/page/insights.php?pl=$1 [L]
+RewriteCond %{HTTP_HOST} !^www.pearsonp\.com$
+RewriteCond %{HTTP_HOST} !^pearsonp\.com$ [NC]
+RewriteCond %{HTTP_HOST} !^www.pearsonkorea\.com$
+RewriteCond %{HTTP_HOST} !^pearsonkorea\.com$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)\/(.*)\/(.*)\/$ include_en/page/$1/$2/$3.php [L]
+RewriteCond %{HTTP_HOST} !^www.pearsonp\.com$
+RewriteCond %{HTTP_HOST} !^pearsonp\.com$ [NC]
+RewriteCond %{HTTP_HOST} !^www.pearsonkorea\.com$
+RewriteCond %{HTTP_HOST} !^pearsonkorea\.com$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)\/(.*)\/$ include_en/page/$1/$2.php [L]
+RewriteCond %{HTTP_HOST} !^www.pearsonp\.com$
+RewriteCond %{HTTP_HOST} !^pearsonp\.com$ [NC]
+RewriteCond %{HTTP_HOST} !^www.pearsonkorea\.com$
+RewriteCond %{HTTP_HOST} !^pearsonkorea\.com$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)\/$ include_en/page/$1.php [L]

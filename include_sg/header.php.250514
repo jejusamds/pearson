@@ -1,0 +1,301 @@
+<? include_once __DIR__."/lib/common.php";?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, user-scalable=no, target-densitydpi=medium-dpi">
+	<meta property="og:url" content="https://<?=$_SERVER['SERVER_NAME']?><?=$_SERVER['REDIRECT_URL']?>" />
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="Pearson & Partners">
+	<meta property="og:title" content="<?=(($meta_title != "") ? $meta_title : $cfg['meta'][$meta_lang]['title'])?>" />
+	<meta property="og:description" content="<?=(($meta_description != "") ? $meta_description : $cfg['meta'][$meta_lang]['description'])?>" />
+	<meta property="og:image" content="https://<?=$_SERVER['SERVER_NAME']?>/include_sg/images/sns_logo.png" />
+	<meta name="title" content="<?=(($meta_title != "") ? $meta_title : $cfg['meta'][$meta_lang]['title'])?>">
+	<meta name="publisher" content="Pearson & Partners">
+	<meta name="author" content="Pearson & Partners">
+	<meta name="keywords" content="<?=(($meta_keyword != "") ? $meta_keyword : $cfg['meta'][$meta_lang]['keyword'])?>">
+	<meta name="description" content="<?=(($meta_description != "") ? $meta_description : $cfg['meta'][$meta_lang]['description'])?>">
+	<meta name="twitter:card" content="https://<?=$_SERVER['SERVER_NAME']?>/include_sg/images/sns_logo.png">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msvalidate.01" content="C1E9B7475F9F130DB60350AECDFB67A8" />
+	<meta http-equiv="x-rim-auto-match" content="none" />
+	<link rel="shortcut icon" type="image/x-icon" href="<?=$cfg['baseUrl']?>/images/favicon.ico">
+	<link rel="canonical" href="<?=$cfg['meta']['canonical']?>" />
+	<link rel="stylesheet" type="text/css" href="<?=setBrowserCache('/css/common.css')?>" />
+	<? if($isMain){?>
+	<link rel="stylesheet" type="text/css" href="<?=setBrowserCache('/css/main.css')?>" />
+	<? } else { ?>
+	<link rel="stylesheet" type="text/css" href="<?=setBrowserCache('/css/sub.css')?>" />
+	<? } ?>
+	<script type="text/javascript" src="<?=$cfg['baseUrl']?>/js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="<?=$cfg['baseUrl']?>/js/jquery-ui-1.11.2.min.js"></script>
+	<script type="text/javascript" src="<?=setBrowserCache('/js/common.js')?>"></script>
+	<? if($isMain){ ?>
+	<script type="text/javascript" src="<?=setBrowserCache('/js/main.js')?>"></script>
+	<? } else { ?>
+	<script type="text/javascript" src="<?=setBrowserCache('/js/sub.js')?>"></script>
+	<? } ?>
+	<title><?=(($meta_title != "") ? $meta_title : $cfg['meta'][$meta_lang]['title'])?></title>
+	<!-- Facebook Pixel Code -->
+	<script>
+	!function(f,b,e,v,n,t,s)
+	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+	if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+	n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];
+	s.parentNode.insertBefore(t,s)}(window, document,'script',
+	'https://connect.facebook.net/en_US/fbevents.js');
+	fbq('init', '2249279522063607');
+	fbq('track', 'PageView');
+	</script>
+	<noscript><img height="1" width="1" style="display:none"
+	src="https://www.facebook.com/tr?id=2249279522063607&ev=PageView&noscript=1"
+	/></noscript>
+	<!-- End Facebook Pixel Code -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131920471-1"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-131920471-1');
+	</script>
+	<script src="https://www.google.com/recaptcha/api.js?render=6LekXKMUAAAAAM4lNwcQQSiSdzcRHt6QKP9k4Kyv"></script>
+	<?
+		if($cfg['meta_url'][2] == "faqs"){
+			include_once __DIR__."/schema.org.faq.php";
+		} else {
+			include_once __DIR__."/schema.org.default.php";
+		}
+	?>
+
+	<!-- Google Tag Manager -->
+	<script>
+		(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-M6LLK32M');
+	</script>
+	<!-- End Google Tag Manager -->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-1TYR1HBNV8"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+		gtag('config', 'G-1TYR1HBNV8');
+		gtag('config', 'AW-318858636');
+	</script>
+
+</head>
+<body oncontextmenu="return false">
+	<header>
+		<div class="headerwrap">
+			<div class="gnbwrap">
+				<div class="depth1">
+					<div class="logo">
+						  <a href="<?=$cfg['href']?>/"><img src="<?=$cfg['baseUrl']?>/images/main/logo.png" alt="logo"/></a>
+					</div>
+					<nav>
+						<ul class="">
+							<li class="<?=isActive("aboutus")?>">
+								<a href="<?=$cfg['href']?>/aboutus/ourmission/" title="About Us">about us</a>
+							</li>
+							<li class="<?=isActive("ourservice")?>">
+								<a href="<?=$cfg['href']?>/ourservice/overview" title="Our Services">our services</a>
+							</li>
+							<li class="<?=isActive("products")?>">
+								<a href="<?=$cfg['href']?>/products/thesetupgenius" title="products">products</a>
+							</li>
+							<li class="<?=isActive("insights")?>">
+								<a href="<?=$cfg['href']?>/insights/" title="Insights">insights</a>
+							</li>
+							<li class="<?=isActive("download")?>">
+								<a href="<?=$cfg['href']?>/download/" title="Download">download</a>
+							</li>
+							<li class="<?=isActive("contactus")?>">
+								<a href="<?=$cfg['href']?>/contactus/" title="Contact Us">contact us</a>
+							</li> 
+						</ul>
+					</nav>
+				</div><!-- depth1 end-->
+				<div class="subwrap">
+					<div class="ulwrap">
+						<div class="allwrap">
+							<ul class="depth2 menu1">
+								<li class="<?=isActive("aboutus/ourmission")?>"><a href="<?=$cfg['href']?>/aboutus/ourmission/">Our Mission</a></li>
+								<li class="<?=isActive("aboutus/whatwedo")?>"><a href="<?=$cfg['href']?>/aboutus/whatwedo/">What We Do</a></li>
+								<li class="<?=isActive("aboutus/ourexperts")?>"><a href="<?=$cfg['href']?>/aboutus/ourexperts/">Our Experts</a></li>
+							</ul>
+							<div class="menu_left menu_img1">
+								<div class="menu_bg"></div>
+								<ul class="">
+									<li>
+										<span class="eng">Expanding one’s business abroad is itself an act of pioneering. We believe valuable things in this world can only be created by the act of pioneering.</span>
+									</li>
+									<li>
+									“To make a world without barriers for business expansion.”
+									</li>
+									<li>
+										We help you build your business in Korea.
+									</li>
+									<li>
+										&nbsp;
+									</li>
+								</ul>
+
+							</div>
+						</div>
+						<div class="allwrap">
+							<ul class="depth2 menu2">
+									<li class="<?=isActive("ourservice/overview")?>"><a href="<?=$cfg['href']?>/ourservice/overview">Overview</a></li>
+									<li class="<?=isActive("ourservice/incorporation")?>"><a href="<?=$cfg['href']?>/ourservice/incorporation">Incorporation</a></li>
+									<li class="<?=isActive("ourservice/visa")?>"><a href="<?=$cfg['href']?>/ourservice/visa">Visa</a></li>
+									<li class="<?=isActive("ourservice/taxaccounting")?>"><a href="<?=$cfg['href']?>/ourservice/taxaccounting">Taxation & Accounting</a></li>
+									<li class="<?=isActive("ourservice/recruitment")?>"><a href="<?=$cfg['href']?>/ourservice/recruitment">Recruitment</a></li>
+									<li class="<?=isActive("ourservice/partner")?>"><a href="<?=$cfg['href']?>/ourservice/partner">Finding Partners</a></li>
+									<li class="<?=isActive("ourservice/livinginkorea")?>"><a href="<?=$cfg['href']?>/ourservice/livinginkorea">Living in Korea</a></li>
+									<li class="<?=isActive("ourservice/faqs")?>"><a href="<?=$cfg['href']?>/ourservice/faqs">FAQs</a></li>
+							</ul>
+							<div class="menu_left menu_img2">
+								<div class="menu_bg"></div>
+								<ul class="">
+									<li>
+										From setting up a corporate entity to living in Korea, we provide a total solution to doing business in Korea.
+									</li>
+									<li>
+										At the turn of the 20th century, Korea finally opened its doors to foreign investment. Korea provides generous support to attract foreign entrepreneurs & professionals.
+									</li>
+									<li>
+										Doing business in Korea starts with establishing a local corporate entity.
+									</li>
+									<li>
+										There are 36 types of visa for foreigners entering Korea. We provide visa issuance, extension and change of sojourn status services for foreign entrepreneurs & professionals.
+									</li>
+									<li>
+										We provide accounting, filing, reporting, and auditing services for foreign businesses in Korea.
+									</li>
+									<li>
+										We match foreign-invested enterprises with Korean job seekers & professionals.
+									</li>
+									<li>
+										Finding local partners is the key to business success abroad. Contact us to find your optimal business partners in Korea.
+									</li>
+									<li>
+										Doing business in Korea may involve living in Korea. Contact us to get help with settling in Korea.
+									</li>
+									<li>
+										“To make a world without barriers for business expansion.”
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="allwrap">
+							<ul class="depth2 menu3">
+								<li  class="<?=isActive("products")?>"><a href="<?=$cfg['href']?>/products/thesetupgenius">The Setup Genius<font class="color_text">™</font></a></li>
+							</ul>
+							<div class="menu_left menu_img4">
+								<div class="menu_bg"></div>
+								<ul class="">
+									<li>
+										We go beyond simply providing services—we continuously seek what is essential for our clients' success and create genuine value.
+									</li>
+									<li>
+										We go beyond simply providing services—we continuously seek what is essential for our clients' success and create genuine value.
+									</li>
+								</ul>
+
+							</div>
+						</div>
+						<div class="allwrap">
+							<ul class="depth2 menu4">
+								<? foreach($cfg['board']['category']['insights_sg'] as $key => $value){ ?>
+									<?
+										$category_tmp = preg_replace('/[^가-힣a-zA-Z0-9 ]/', '', $value);
+										$category_tmp = preg_replace('/\s{2,}/', ' ', $category_tmp);
+										$category_tmp = preg_replace('/ /', '-', $category_tmp);
+									?>
+									<li class="<?=isActiveCustom("insights", "c", $key)?>"><a href="<?=$cfg['href']?>/insights/category/<?=$category_tmp?>/"><?=$value?></a></li>
+								<? } ?>
+								<li>
+									<a href="https://blog.pearsonp.com/" target="_blank">
+										BLOG
+									</a>
+								</li>
+							</ul>
+							<div class="menu_left menu_img3">
+								<div class="menu_bg"></div>
+								<ul class="">
+									<li>Feed yourself with more in-depth insights on doing business in Korea.</li>
+									<li>Feed yourself with more in-depth insights on doing business in Korea.</li>
+									<li>Feed yourself with more in-depth insights on doing business in Korea.</li>
+									<li>Feed yourself with more in-depth insights on doing business in Korea.</li>
+									<li>Feed yourself with more in-depth insights on doing business in Korea.</li>
+									<li>Feed yourself with more in-depth insights on doing business in Korea.</li>
+									<li>Feed yourself with more in-depth insights on doing business in Korea.</li>
+									<li>Feed yourself with more in-depth insights on doing business in Korea.</li>
+
+								</ul>
+							</div>
+						</div>
+						<div class="allwrap">
+							<ul class="depth2 menu5">
+								<li  class="<?=isActive("download")?>"><a href="<?=$cfg['href']?>/download">Download</a></li>
+							</ul>
+							<div class="menu_left menu_img4">
+								<div class="menu_bg"></div>
+								<ul class="">
+									<li>
+										You can download required documents for registrations and government-provided information in this section.
+									</li>
+									<li>
+										You can download required documents for registrations and government-provided information in this section.
+									</li>
+								</ul>
+
+							</div>
+						</div>
+						
+						<div class="allwrap">
+							<ul class="depth2 menu6">
+								<li class="<?=isActive("contactus")?>"><a href="<?=$cfg['href']?>/contactus">Contact Us</a></li>
+							</ul>
+							<div class="menu_left menu_img5">
+								<div class="menu_bg"></div>
+								<ul class="">
+									<li>
+									For more inquiries or service request, contact us directly.
+									</li>
+									<li>
+									For more inquiries or service request, contact us directly.
+									</li>
+								</ul>
+							</div>
+						</div>
+						
+					</div><!--  ulwrap end  -->
+				</div><!--  subwrap end  -->
+			</div><!--  gnbwrap end  -->
+		</div>	<!--  headerwrap end  -->
+	</header>
+
+<? if(!$isMain){?>
+	<div class="visual <?=explode("/", $cfg['page_code'])[0]?>">
+		<div class="visual_inner"></div>
+		<div class="dot_bg"></div>
+		<div class="text_wrap fwrap">
+			<h1>
+				<i>W</i><i>e&nbsp;</i><i>b</i><i>r</i><i>i</i><i>n</i><i>g</i><i>&nbsp;</i><i>t</i><i>h</i><i>e</i><i>&nbsp;</i><i>W</i><i>o</i><i>r</i><i>l</i><i>d</i><i></i><i> t</i><i>o</i><i> K</i><i>o</i><i>r</i><i>e</i><i>a</i><i>,</i>
+				<i> </i><i>a</i><i>n</i><i>d</i><i> t</i><i>a</i><i>k</i><i>e</i><i>&nbsp;</i><i>K</i><i>o</i><i>r</i><i>e</i><i>a</i><i>&nbsp;</i><i>t</i><i>o</i><i>&nbsp;</i><i>t</i><i>h</i><i>e</i><i>&nbsp;</i><i>W</i><i>o</i><i>r</i><i>l</i><i>d</i>.</i>
+			</h1>
+		</div>
+	</div>
+<?}?>

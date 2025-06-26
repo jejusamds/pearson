@@ -1,0 +1,170 @@
+var windowWidth = $(window).width();
+
+if (640 <= windowWidth) {
+	$(function () {
+		$('.effect .box').hover(function () {
+			$(this).addClass('event');
+			$(this).find(' p i').css('color', '#ffffff');
+		}, function () {
+			$(this).removeClass('event');
+			$(this).find(' p i').css('color', '#848383');
+		});
+		setTimeout(function () {
+			$('img.fix').css('opacity', '1');
+			$('.wrap').css({
+				'opacity': '1'
+			});
+		}, 2000);
+	});
+} else {
+	$('img.fix').css('opacity', '1');
+	$('.wrap').css('opacity', '1');
+}
+
+function videostart() {
+	$(".main, html, body").addClass("active");
+	$('.mainwrap').addClass('zoom-out');
+	init();
+	animate();
+	setTweenTimer();
+}
+var tablet_size=false;
+$(window).resize(function (){
+	var width_size = window.outerWidth;
+	if (640 <= width_size) {
+		tablet_size=true;
+		var vid = null;
+		$(function () {
+			$('.effect .box').hover(function () {
+				$(this).addClass('event');
+			}, function () {
+				$(this).removeClass('event');
+			});
+			setTimeout(function () {
+				$('img.fix').css('opacity', '1');
+				$('.wrap').css({
+					'opacity': '1'
+				});
+			}, 2000);
+		});
+	} else {
+		$('img.fix').css('opacity', '1');
+		$('.wrap').css('opacity', '1');
+	}
+});
+
+$(function(){
+	var vid = document.getElementById("myVideo");
+	var mainInsightsRollingTimer = null, mainInsightsRollingIx = 1;
+
+	setTimeout(function(){
+		$(window).scrollTop(0);
+	}, 1000);
+
+	$("body").css("overflow", "hidden");
+
+	var introTimer = null;
+	// 딜레이 = random(5) * 0.3
+	var $imgs = $("[data-img-id]");
+	var timings = [0, 750, 125, 250, 375, 1125, 500, 625, 1375, 875, 1000, 1250, 1500, 1750];
+
+	$.each($imgs, function(e, o){
+		$(o).delay(timings[e]).queue(function(){
+			$(this).addClass("show");
+		});
+	});
+
+	introTimer = setTimeout(function(){
+		vid.currentTime=5;
+		$("[data-img-last]").addClass("show");
+		$("[data-img-first]").addClass("show");
+		introTimer = setTimeout(function(){
+			$(".bg").animate({ "top": "140px", "height" : "800px"}, 2000, "easeOutExpo", function(){
+				vid.play();
+				$(this).fadeOut(2500, function(){
+					$("body").css("overflow", "auto");
+					$("#introSkip").fadeOut();
+					setScrollBtn();
+					setMainInsightsRolling();
+				});
+			});
+		}, 1500);
+	}, 2200);
+
+	$("#introSkip").bind("click", function(e){
+		vid.currentTime=5;
+		e.preventDefault();
+		$("[data-img-last]").clearQueue().stop().addClass("show");
+		$("[data-img-first]").clearQueue().stop().addClass("show");
+		$imgs.clearQueue().stop().addClass("show");
+		clearInterval(introTimer);
+		$(this).fadeOut();
+		$(".bg").fadeOut(400);
+		$("body").css("overflow", "auto");
+		setScrollBtn();
+		vid.play();
+		$(".bg").animate({ "top": "140px", "height" : "800px"}, 400, "easeOutExpo", function(){
+			
+		});
+		setMainInsightsRolling();
+	});
+
+	//텍스트 박스
+	$('.insights:not(:eq(0)) > a > div > .insight_txt').hide();
+	$('.insights:eq(0)').addClass('active');
+
+	//var num=0;
+	$('.insights > a').click(function(event){
+		if(!$(this).parent().is(":hover")){
+			setMainInsightsRolling();
+		}
+
+		if(!$(this).parent().hasClass("active")){
+			mainInsightsRollingIx = $(".insights").index($(this).parent()) + 1;
+
+			if(mainInsightsRollingIx > $(".insights").length - 1){
+				mainInsightsRollingIx = 0;
+			}
+
+			$('.insights').removeClass('active');
+			$(this).parent().addClass('active');
+			event.preventDefault();
+
+			num=$(this).parent().index();
+			changeImg(num);
+
+			var $this = $(this), $siblings = $this.parent().siblings(".insights");
+
+			$this.find(".insight_txt").stop().slideDown();
+			$siblings.find(".insight_txt").stop().slideUp();
+		}
+	});
+
+	$('.img_num li a').click(function(e){
+		e.preventDefault();
+
+		num=$(this).parent().index();
+		changeImg(num);
+	});
+
+	function changeImg(num){
+		$('.img_num li.active').removeClass('active');
+		$('.img_num li').eq(num).addClass('active');
+		$('.img_slide').stop().animate({left:-589*num},700)
+	}
+
+	function setMainInsightsRolling(){
+		clearInterval(mainInsightsRollingTimer);
+		mainInsightsRollingTimer = setInterval(function(){
+			$('.insights:eq(' + mainInsightsRollingIx + ') > a').trigger("click");
+		}, 3500);
+	}
+
+	$(".insights").bind("mouseenter", function(){
+		clearInterval(mainInsightsRollingTimer);
+	});
+
+	$(".insights").bind("mouseleave", function(){
+		setMainInsightsRolling();
+	});
+});
