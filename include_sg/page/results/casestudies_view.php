@@ -1,15 +1,15 @@
 <?php
-    $cfg['page_code'] = "results/casestudies_view";
-    include_once __DIR__."/../../lib/common.php";
+$cfg['page_code'] = "results/casestudies_view";
+include_once __DIR__ . "/../../lib/common.php";
 
-    $boardName = "casestudies_en";
-    $tableName = $cfg['db']['prefix']."board_".$boardName;
-    $fileTableName = $cfg['db']['prefix']."boardFile";
-    $pageDir = "/results/casestudies/";
+$boardName = "casestudies_en";
+$tableName = $cfg['db']['prefix'] . "board_" . $boardName;
+$fileTableName = $cfg['db']['prefix'] . "boardFile";
+$pageDir = "/results/casestudies/";
 
-    $boardCoreOnly = true;
-    include_once __DIR__."/../board/board.core.php";
-    include_once __DIR__."/../../header.php";
+$boardCoreOnly = true;
+include_once __DIR__ . "/../board/board.core.php";
+include_once __DIR__ . "/../../header.php";
 ?>
 <div class="sub_content_wrap">
     <div class="sub_content_box">
@@ -28,68 +28,58 @@
                 <div class="contents_con">
                     <div class="title_txt">
                         <div class="title_con">
-<<<<<<< o4is5m-codex/관리자-화면-casestudies-메뉴-수정-및-동적화
-                            <span>{{<?=$self['subject']?>}}</span>
-=======
-                            <span><?=$self['subject']?></span>
->>>>>>> main
+
+                            <span><?= $self['subject'] ?></span>
+
                         </div>
                         <div class="info_con">
                             <ul>
                                 <li>
                                     <div class="list_div">
-<<<<<<< o4is5m-codex/관리자-화면-casestudies-메뉴-수정-및-동적화
-                                        <div class="writer_con"><span>{{<?=$self['name']?>}}</span></div>
-=======
-                                        <div class="writer_con"><span><?=$self['name']?></span></div>
->>>>>>> main
+
+                                        <div class="writer_con"><span><?= $self['name'] ?></span></div>
+
                                     </div>
                                 </li>
                                 <li>
                                     <div class="list_div">
                                         <div class="text01_con"><span>Date</span></div>
-<<<<<<< o4is5m-codex/관리자-화면-casestudies-메뉴-수정-및-동적화
-                                        <div class="text02_con"><span>{{<?=date('Y.m.d', strtotime($self['regDate']))?>}}</span></div>
-=======
-                                        <div class="text02_con"><span><?=date('Y.m.d', strtotime($self['regDate']))?></span></div>
->>>>>>> main
+
+                                        <div class="text02_con">
+                                            <span><?= date('Y.m.d', strtotime($self['regDate'])) ?></span></div>
+
                                     </div>
                                 </li>
                                 <li>
                                     <div class="list_div">
                                         <div class="text01_con"><span>View</span></div>
-<<<<<<< o4is5m-codex/관리자-화면-casestudies-메뉴-수정-및-동적화
-                                        <div class="text02_con"><span>{{<?=$self['hit']?>}}</span></div>
-=======
-                                        <div class="text02_con"><span><?=$self['hit']?></span></div>
->>>>>>> main
+
+                                        <div class="text02_con"><span><?= $self['hit'] ?></span></div>
+
                                     </div>
                                 </li>
                             </ul>
                         </div>
-                        <?php if($self['files'][3]['realName']){ ?>
-                        <div class="file_con">
-<<<<<<< o4is5m-codex/관리자-화면-casestudies-메뉴-수정-및-동적화
-                            <a href="<?=$cfg['href']?>/board/download.php?t=<?=$boardName?>&n=<?=$self['files'][3]['no']?>">{{<?=$self['files'][3]['realName']?>}}</a>
-=======
-                            <a href="<?=$cfg['href']?>/board/download.php?t=<?=$boardName?>&n=<?=$self['files'][3]['no']?>"><?=$self['files'][3]['realName']?></a>
->>>>>>> main
-                        </div>
+                        <?php if ($self['files'][3]['realName']) { ?>
+                            <div class="file_con">
+
+                                <a
+                                    href="<?= $cfg['href'] ?>/board/download.php?t=<?= $boardName ?>&n=<?= $self['files'][3]['no'] ?>"><?= $self['files'][3]['realName'] ?></a>
+
+                            </div>
                         <?php } ?>
                     </div>
                     <div class="posts_con">
-<<<<<<< o4is5m-codex/관리자-화면-casestudies-메뉴-수정-및-동적화
-                        {{<?=$self['content']?>}}
-=======
-                        <?=$self['content']?>
->>>>>>> main
+
+                        <?= $self['content'] ?>
+
                     </div>
                     <div class="btn_con">
-                        <a href="<?=$pageDir?>">List</a>
+                        <a href="<?= $pageDir ?>">List</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<?php include_once __DIR__."/../../footer.php"; ?>
+<?php include_once __DIR__ . "/../../footer.php"; ?>
