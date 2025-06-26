@@ -7,6 +7,6 @@ CREATE TABLE IF NOT EXISTS pap_board_casestudies_en (
     tmp3 VARCHAR(255) DEFAULT NULL,
     tmp4 VARCHAR(255) DEFAULT NULL,
     content MEDIUMTEXT,
-    regDate DATETIME DEFAULT CURRENT_TIMESTAMP,
+    regDate TIMESTAMP DEFAULT current_timestamp,
     hit INT DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
