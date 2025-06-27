@@ -394,10 +394,15 @@
 				// Histroy
 				Queryi("INSERT INTO $historyTableName SET $historyDataSet", array("update", $_SESSION['userid'], $_POST['board'], $_POST['no'], getIP()));
 
-				redirectUrl("board_list.php?".$qstr);
-			}
-			break;
-		case "delete" : 
+                                redirectUrl("board_list.php?".$qstr);
+                        }
+                        break;
+                case "intro" :
+                        $introTableName = $cfg['db']['prefix']."board_intro";
+                        Queryi("REPLACE INTO $introTableName SET board = ?, content = ?", array($_POST['board'], $_POST['intro']));
+                        redirectUrl("board_list.php?board=".$_POST['board']);
+                        break;
+                case "delete" :
 			if($_SESSION['userLevel'] > 100){
 				$where = "no = ?";
 
