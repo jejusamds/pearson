@@ -62,12 +62,24 @@
 								<? } ?>
 							</div>
 						</div>							
-						<div class="form-group">
-							<label class="col-md-3 control-label">제목</label>
-							<div class="col-md-9">
-								<input type="text" class="form-control" name="subject" placeholder="제목" value="<?=$rs[0]['subject']?>" />
-							</div>
-						</div>
+                                                <div class="form-group">
+                                                        <label class="col-md-3 control-label">제목</label>
+                                                        <div class="col-md-9">
+                                                                <input type="text" class="form-control" name="subject" placeholder="제목" value="<?=$rs[0]['subject']?>" />
+                                                        </div>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label class="col-md-3 control-label">Name</label>
+                                                        <div class="col-md-9">
+                                                                <input type="text" class="form-control" name="tmp1" placeholder="Name" value="<?=$rs[0]['tmp1']?>" />
+                                                        </div>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label class="col-md-3 control-label">Position</label>
+                                                        <div class="col-md-9">
+                                                                <input type="text" class="form-control" name="tmp2" placeholder="Position" value="<?=$rs[0]['tmp2']?>" />
+                                                        </div>
+                                                </div>
 						<? for($i = 0; $i < 1; $i++){ ?>
 							<div class="form-group isMultiFileGroup">
 								<label class="col-md-3 control-label">
