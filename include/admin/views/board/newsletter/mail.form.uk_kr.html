@@ -1,0 +1,62 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title><?=$row['subject']?></title>
+</head>
+	<body>
+		<table width="600" border="0" cellpadding="0" cellspacing="0" style="margin: 0 auto; background:#fff; width: 600px; display: block;">
+			<tbody>
+				<tr>
+					<td>
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tbody>
+								<tr>
+									<td><a href="<?=$domain?>/insights/<?=$row['permalink']?>/" target="_blank"><img src="cid:pap_mailing_inner_img_final_1" alt="READ THE FULL ARTICLE" style="display: block; vertical-align: top;" align="absbottom" /></a></td>
+								</tr>
+							</tbody>
+						</table>
+						<table width="100%" border="0" cellspacing="0" cellpadding="0" style="width: 100%; font-family: Georgia, Times, 'Times New Roman', serif;">
+							<tbody>
+								<tr>
+									<td style="width: 590px; padding: 20px 5px; word-break: keep-all;"><span style="font-size: 18px; font-weight: 600;"><?=date("F d, Y", strtotime($row['regDate']))?></span><br /><br /><?=$stmpContent['content']?></td>
+								</tr>
+							</tbody>
+						</table>
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tbody>
+								<tr>
+									<td><a href="<?=$domain?>" target="_blank"><img src="cid:pap_mailing_inner_img_final_2" alt="VISIT TO WEBSITE" style="display: block; vertical-align: top;" align="absbottom" /></a></td>
+								</tr>
+							</tbody>
+						</table>
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tbody>
+								<tr>
+									<td>
+										<table width="600" border="0" cellspacing="0" cellpadding="0" style="width: 600px;">
+											<tbody>
+												<tr>
+													<td style="padding: 25px 0px 25px 50px; background-color: #0C0F12;">
+														<table border="0" cellspacing="0" cellpadding="0" style="width: 100%">
+															<tr>
+																<td style="width: 152px;"><img src="cid:pap_mailing_inner_img_final_3" alt="Pearson & Partners" style="display: block; vertical-align: top;" align="absbottom" /></td>
+																<td style="width: 358px; padding:0 20px; word-break: break-all; font-family: Arial, Helvetica; color: #fff; font-size: 12px;"><?=$contact_info?><br /><span style="font-family: Arial, Helvetica; color: #fff; font-size: 12px;">Copyright 2019 Pearson & Partners all rights reserved</span></td>
+															</tr>
+														</table>
+													</td>			
+												</tr>
+											</tbody>
+										</table>
+									</td>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td style="font-family: Arial, Helvetica; font-size: 12px; padding-top: 20px; text-align: center;"><a href="<?=$subscribeCancelURL?>">Unsubscribe</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

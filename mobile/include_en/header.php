@@ -1,0 +1,155 @@
+<? include_once __DIR__."/lib/common.php";?>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=medium-dpi">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="x-rim-auto-match" content="none">
+	<meta property="og:url" content="https://<?=$_SERVER['SERVER_NAME']?><?=$_SERVER['REDIRECT_URL']?>" />
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="Pearson & Partners">
+	<meta property="og:title" content="<?=(($meta_title != "") ? $meta_title : $cfg['meta'][$meta_lang]['title'])?>" />
+	<meta property="og:description" content="<?=(($meta_description != "") ? $meta_description : $cfg['meta'][$meta_lang]['description'])?>" />
+	<meta property="og:image" content="https://<?=$_SERVER['SERVER_NAME']?>/include_sg/images/sns_logo.png" />
+	<meta name="title" content="<?=(($meta_title != "") ? $meta_title : $cfg['meta'][$meta_lang]['title'])?>">
+	<meta name="publisher" content="Pearson & Partners">
+	<meta name="author" content="Pearson & Partners">
+	<meta name="robots" content="index,follow">
+	<meta name="keywords" content="<?=(($meta_keyword != "") ? $meta_keyword : $cfg['meta'][$meta_lang]['keyword'])?>">
+	<meta name="description" content="<?=(($meta_description != "") ? $meta_description : $cfg['meta'][$meta_lang]['description'])?>">
+	<meta name="twitter:card" content="https://<?=$_SERVER['SERVER_NAME']?>/include_sg/images/sns_logo.png">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msvalidate.01" content="C1E9B7475F9F130DB60350AECDFB67A8" />
+	<meta http-equiv="x-rim-auto-match" content="none" />
+	<link rel="shortcut icon" href="<?=$cfg['baseUrl']?>/images/favicon.png">
+	<link rel="alternate" href="https://<?=$_SERVER['SERVER_NAME']?>/mobile" hreflang="x-default">
+	<link rel="canonical" href="<?=$cfg['meta']['canonical']?>" />
+	<link rel="stylesheet" type="text/css" href="<?=setBrowserCache("/css/common.css")?>">
+	<? if($isMain){ ?>
+		<link rel="stylesheet" type="text/css" href="<?=setBrowserCache("/css/main.css")?>">
+		<link rel="stylesheet" type="text/css" href="<?=$cfg['baseUrl']?>/css/slick.css">
+	<? } else { ?>
+		<link rel="stylesheet" type="text/css" href="<?=setBrowserCache("/css/sub.css")?>">
+	<? } ?>
+	<script src="<?=$cfg['baseUrl']?>/js/jquery-3.3.1.min.js"></script>
+	<script src="<?=$cfg['baseUrl']?>/js/jquery.ui.min.js"></script>
+	<script src="<?=setBrowserCache("/js/common.js")?>"></script>
+	<? if($isMain){ ?>
+	<script src="<?=$cfg['baseUrl']?>/js/slick.min.js"></script>
+	<script type="text/javascript" src="<?=setBrowserCache("/js/main.js")?>"></script>
+	<? } else { ?>
+	<script type="text/javascript" src="<?=setBrowserCache("/js/sub.js")?>"></script>
+	<? } ?>
+	<title><?=(($meta_title != "") ? $meta_title : $cfg['meta'][$meta_lang]['title'])?></title>
+	<!-- Facebook Pixel Code -->
+	<script>
+	!function(f,b,e,v,n,t,s)
+	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+	if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+	n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];
+	s.parentNode.insertBefore(t,s)}(window, document,'script',
+	'https://connect.facebook.net/en_US/fbevents.js');
+	fbq('init', '2249279522063607');
+	fbq('track', 'PageView');
+	</script>
+	<noscript><img height="1" width="1" style="display:none"
+	src="https://www.facebook.com/tr?id=2249279522063607&ev=PageView&noscript=1"
+	/></noscript>
+	<!-- End Facebook Pixel Code -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140301142-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-140301142-1');
+	</script>
+	<script src="https://www.google.com/recaptcha/api.js?render=6Lfmq58UAAAAANNqsWxmMUt7_-YkUqNfGKGzZv6J"></script>
+	<?
+		if($cfg['meta_url'][2] == "faqs"){
+			include_once __DIR__."/schema.org.faq.php";
+		} else {
+			include_once __DIR__."/schema.org.default.php";
+		}
+	?>
+</head>
+<body <?=(($_GET['intro'] != "skip" && $isMain) ? 'style="overflow: hidden;"' : '')?>  oncontextmenu="return false">
+		<header class=" <?=explode("/", $cfg['page_code'])[0]?>">
+		<? if(!$isMain){ ?>
+			<div class="normal">
+				<div class="original"></div>
+				<div class="blur"></div>
+			</div>
+		<? } ?>
+			<div class="logo_container">
+				<div class="global">
+					<a href="<?=$cfg['href']?>/">
+						<img src="<?=$cfg['baseUrl']?>/images/common/header_icon1.png" class="white">
+						<img src="<?=$cfg['baseUrl']?>/images/common/header_icon1_ac.png" class="blue">
+					</a>
+				</div>
+				<div class="logo">
+					<a href="<?=$cfg['href']?>/?intro=skip">
+						<img src="<?=$cfg['baseUrl']?>/images/common/header_logo.png">
+						<img src="<?=$cfg['baseUrl']?>/images/common/header_logo_ac.png" class="blue">
+					</a>
+				</div>
+				<div class="icon">
+					<a class="gnb_btn" href="#"><i class="line first"></i><i class="line second"></i></a>
+				</div>
+			</div>
+			<nav>
+				<!-- <1차 카테고리> -->
+				<ul class="gnb">
+					<li class="<?=isActive("aboutus")?>"><a href="<?=$cfg['href']?>/aboutus/ourmission">about us</a>
+						<ul class="depth2">
+							<li class="<?=isActive("aboutus/ourmission")?>"><a href="<?=$cfg['href']?>/aboutus/ourmission">Our Mission</a></li>
+							<li class="<?=isActive("aboutus/whatwedo")?>"><a href="<?=$cfg['href']?>/aboutus/whatwedo/">What We Do</a></li>
+						</ul>
+					</li>
+					<li class="<?=isActive("ourservice")?>"><a href="<?=$cfg['href']?>/ourservice/overview">our services</a>
+						<ul class="depth2">
+							<li class="<?=isActive("ourservice/why")?>"><a href="<?=$cfg['href']?>/ourservice/why">Why Singapore?</a></li>
+							<li class="<?=isActive("ourservice/incorporation")?>"><a href="<?=$cfg['href']?>/ourservice/incorporation">Incorporation</a></li>
+							<li class="<?=isActive("ourservice/bank")?>"><a href="<?=$cfg['href']?>/ourservice/bank">Bank Account</a></li>
+							<li class="<?=isActive("ourservice/taxation")?>"><a href="<?=$cfg['href']?>/ourservice/taxation">Taxation</a></li>
+							<li class="<?=isActive("ourservice/accounting")?>"><a href="<?=$cfg['href']?>/ourservice/accounting">Accounting</a></li>
+							<li class="<?=isActive("ourservice/visa")?>"><a href="<?=$cfg['href']?>/ourservice/visa">Visa</a></li>
+							<li class="<?=isActive("ourservice/faqs")?>"><a href="<?=$cfg['href']?>/ourservice/faqs">FAQs</a></li>		
+						</ul>
+					</li>
+					<li class="<?=isActive("insights")?>"><a href="<?=$cfg['href']?>/insights/">insights</a>
+						<ul class="depth2">
+							<? foreach($cfg['board']['category']['insights_en'] as $key => $value){ ?>
+								<?
+									$category_tmp = preg_replace('/[^가-힣a-zA-Z0-9 ]/', '', $value);
+									$category_tmp = preg_replace('/\s{2,}/', ' ', $category_tmp);
+									$category_tmp = preg_replace('/ /', '-', $category_tmp);
+								?>
+								<li class="<?=isActiveCustom("insights", "c", $key)?>"><a href="<?=$cfg['href']?>/insights/category/<?=$category_tmp?>/"><?=$value?></a></li>
+							<? } ?>
+							<li><a href="https://sg.jooble.org/jobs-business-advisor" target="_blank">Business Advisor Jobs</a></li>
+						</ul>
+					</li>
+					<li class="<?=isActive("download")?>"><a href="<?=$cfg['href']?>/download">download</a></li>
+					<!--<li class="<?=isActive("testimonials")?>"><a href="<?=$cfg['href']?>/testimonials">Testimonials</a></li>-->
+					<li class="<?=isActive("contactus")?>"><a href="<?=$cfg['href']?>/contactus">contact us</a></li>
+				</ul>
+				<!-- </2차 카테고리 -->
+				</ul>
+				<ul class="util">
+					<li class="active"><a href="javascript:void(0);">Singapore</a></li>
+					<li><a href="<?=$cfg['href_sg']?>/">Korea</a></li>
+				</ul>
+			</nav>
+		</header>
+	<div class="all_container">
+		<div class="page_container">
+

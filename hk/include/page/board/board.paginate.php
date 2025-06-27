@@ -1,0 +1,1 @@
+<?=getBoardPageBtns($dataCount, $_GET['page'], $pagingItemMax, $pagingBlockMax, $qstr)?>
