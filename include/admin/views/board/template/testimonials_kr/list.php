@@ -28,7 +28,13 @@
 					<div class="panel-heading-btn"></div>
 					<h4 class="panel-title">Showing <?=$fromLimit?> to <?=$pagingItemMax?> of <?=$dataCount?> entries</h4>
 				</div>
-				<div class="panel-body">
+                                <div class="panel-body">
+                                        <form action="board_process.php" method="post" class="m-b-15">
+                                                <input type="hidden" name="board" value="<?=$_GET['board']?>" />
+                                                <input type="hidden" name="mode" value="intro" />
+                                                <textarea name="intro" class="form-control" rows="4"><?=$introText?></textarea>
+                                                <div class="text-right m-t-5"><button type="submit" class="btn btn-xs btn-primary">적용</button></div>
+                                        </form>
 					<div class="col-md-12 m-b-10 text-right p-l-0 p-r-0">
 						<form class="form-group" action="" method="GET">
 							<input type="hidden" name="board" value="<?=$_GET['board']?>">

@@ -3,7 +3,8 @@
 	adminCheck();
 
 	$tableName = $cfg['db']['prefix']."board_".$_GET['board'];
-	$fileTableName = $cfg['db']['prefix']."boardFile";
+        $fileTableName = $cfg['db']['prefix']."boardFile";
+        $introTableName = $cfg['db']['prefix']."board_intro";
 	$fileDirectory = $cfg['dir']['board']."/".$_GET['board']."/";
 	$where = "isDelete = 'N'";
 	$params = array();
@@ -82,7 +83,10 @@
 		$rs = array();
 	}
 
-	$qstr = getQstr($cfg['board']['qstr'][$_GET['board']], $_GET)."&page=";
+        $introRow = Queryi("SELECT * FROM $introTableName WHERE board = ?", array($_GET['board']), true);
+        $introText = $introRow['content'];
+
+        $qstr = getQstr($cfg['board']['qstr'][$_GET['board']], $_GET)."&page=";
 
 	include_once $cfg['root'].$cfg['dir']['admin']."/views/common_header.php";
 	include_once $cfg['root'].$cfg['dir']['admin']."/views/common_navi.php";
