@@ -1,10 +1,17 @@
-<?php 
-include_once __DIR__."/../../lib/common.php"; 
-$rs = Queryi("SELECT * FROM pap_board_faq", null);
+<?php
+    $cfg['page_code'] = "results/testimonials";
+    include_once __DIR__."/../../lib/common.php";
 
+    $boardName = "testimonials_kr";
+    $tableName = $cfg['db']['prefix']."board_".$boardName;
+    $fileTableName = $cfg['db']['prefix']."boardFile";
+    $pageDir = "/results/testimonials/";
+
+    $boardCoreOnly = true;
+    include_once __DIR__."/../board/board.core.php";
+
+    include_once __DIR__."/../../header.php";
 ?>
-<? $cfg['page_code'] = "results/testimonials"; ?>
-<? include_once __DIR__."/../../header.php"; ?>
 	<div class="sub_content_wrap">
 		<div class="sub_content_box">
 			<div class="sub_box">
@@ -31,128 +38,33 @@ $rs = Queryi("SELECT * FROM pap_board_faq", null);
 						</div>
 
 						<div class="list_con">
-							<ul>
-								<li>
-									<div class="list_div">
-										<div class="logo_con">
-											<div class="img_con">
-												<img src="/include_kr/images/sub/results_sub01_list_con_img_con_logo.png" alt="로고" >
-											</div>
-										</div>
-										
-										<div class="txt_con">
-											<div class="text01_con">
-												<span>
-													Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-												</span>
-											</div>
-										
-											<div class="text02_con">
-												<span>
-													Lorem ipsum
-												</span>
-											</div>
-										
-											<div class="text03_con">
-												<span>
-													consectetur adipisicing elit
-												</span>
-											</div>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="list_div">
-										<div class="logo_con">
-											<div class="img_con">
-												<img src="/include_kr/images/sub/results_sub01_list_con_img_con_logo.png" alt="로고" >
-											</div>
-										</div>
-										
-										<div class="txt_con">
-											<div class="text01_con">
-												<span>
-													Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <br>
-													Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br>
-													Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.
-												</span>
-											</div>
-										
-											<div class="text02_con">
-												<span>
-													Lorem ipsum
-												</span>
-											</div>
-										
-											<div class="text03_con">
-												<span>
-													consectetur adipisicing elit
-												</span>
-											</div>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="list_div">
-										<div class="logo_con">
-											<div class="img_con">
-												<img src="/include_kr/images/sub/results_sub01_list_con_img_con_logo.png" alt="로고" >
-											</div>
-										</div>
-										
-										<div class="txt_con">
-											<div class="text01_con">
-												<span>
-													Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-												</span>
-											</div>
-										
-											<div class="text02_con">
-												<span>
-													Lorem ipsum
-												</span>
-											</div>
-										
-											<div class="text03_con">
-												<span>
-													consectetur adipisicing elit
-												</span>
-											</div>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="list_div">
-										<div class="logo_con">
-											<div class="img_con">
-												<img src="/include_kr/images/sub/results_sub01_list_con_img_con_logo.png" alt="로고" >
-											</div>
-										</div>
-										
-										<div class="txt_con">
-											<div class="text01_con">
-												<span>
-													Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <br>
-													Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br>
-													Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.
-												</span>
-											</div>
-										
-											<div class="text02_con">
-												<span>
-													Lorem ipsum
-												</span>
-											</div>
-										
-											<div class="text03_con">
-												<span>
-													consectetur adipisicing elit
-												</span>
-											</div>
-										</div>
-									</div>
-								</li>
-							</ul>
+                                                        <ul>
+<?php foreach($rs as $row){ ?>
+                                                                <li>
+                                                                        <div class="list_div">
+                                                                               <div class="logo_con">
+                                                                               <div class="img_con">
+                                                                               <img src="<?=$row['files'][1]['originalSrc']?>" alt="logo" >
+                                                                               </div>
+                                                                               </div>
+
+                                                                               <div class="txt_con">
+                                                                               <div class="text01_con">
+                                                                               <span><?=nl2br($row['content'])?></span>
+                                                                               </div>
+
+                                                                               <div class="text02_con">
+                                                                               <span><?=$row['subject']?></span>
+                                                                               </div>
+
+                                                                               <div class="text03_con">
+                                                                               <span><?=date('Y.m.d', strtotime($row['regDate']))?></span>
+                                                                               </div>
+                                                                               </div>
+                                                                        </div>
+                                                                </li>
+<?php } ?>
+                                                        </ul>
 						</div>
 					</div>
 				</div>	<!--   sub_text end   -->
