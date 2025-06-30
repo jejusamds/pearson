@@ -62,11 +62,23 @@
 							<span>코리아 (/kr/)</span>
 						</a>
 						<ul class="sub-menu" <?=((in_array($_GET['board'], array_keys($cfg['board']['type_kr_en']))) ? 'style="display: block;"' : '')?>>
-							<? foreach($cfg['board']['type_kr_en'] as $key => $value){ ?>					
-								<li <?=(($_GET['board'] == $key) ? 'class="active"' : '')?>>
-									<a href="<?=$cfg['dir']['admin']?>/views/board/board_list.php?board=<?=$key?>"><?=$value?></a>
-								</li>
-							<? } ?>
+                                                        <? foreach($cfg['board']['type_kr_en'] as $key => $value){ ?>
+                                                                <li <?=(($_GET['board'] == $key) ? 'class="active"' : '')?>>
+                                                                        <a href="<?=$cfg['dir']['admin']?>/views/board/board_list.php?board=<?=$key?>"><?=$value?></a>
+                                                                </li>
+                                                                <?php if ($key == 'insights_sg') { ?>
+                                                                <li <?=($_GET['board']=='casestudies_en')?'class="active"':''?>>
+                                                                        <a href="<?=$cfg['dir']['admin']?>/views/board/board_list.php?board=casestudies_en">
+                                                                                <?=$cfg['board']['type_sg_en']['casestudies_en']?>
+                                                                        </a>
+                                                                </li>
+                                                                <li <?=($_GET['board']=='testimonials_en')?'class="active"':''?>>
+                                                                        <a href="<?=$cfg['dir']['admin']?>/views/board/board_list.php?board=testimonials_en">
+                                                                                <?=$cfg['board']['type_sg_en']['testimonials_en']?>
+                                                                        </a>
+                                                                </li>
+                                                                <?php } ?>
+                                                        <? } ?>
 						</ul>
 					</li>
 					<li class="has-sub <?=((in_array($_GET['board'], array_keys($cfg['board']['type_sg_en']))) ? 'active' : '')?>">
@@ -75,11 +87,12 @@
 							<span>싱가포르 (/sg/)</span>
 						</a>
 						<ul class="sub-menu" <?=((in_array($_GET['board'], array_keys($cfg['board']['type_sg_en']))) ? 'style="display: block;"' : '')?>>
-							<? foreach($cfg['board']['type_sg_en'] as $key => $value){ ?>					
-								<li <?=(($_GET['board'] == $key) ? 'class="active"' : '')?>>
-									<a href="<?=$cfg['dir']['admin']?>/views/board/board_list.php?board=<?=$key?>"><?=$value?></a>
-								</li>
-							<? } ?>
+                                                        <? foreach($cfg['board']['type_sg_en'] as $key => $value){ 
+                                                                if (in_array($key, ['casestudies_en','testimonials_en'])) continue; ?>
+                                                                <li <?=(($_GET['board'] == $key) ? 'class="active"' : '')?>>
+                                                                        <a href="<?=$cfg['dir']['admin']?>/views/board/board_list.php?board=<?=$key?>"><?=$value?></a>
+                                                                </li>
+                                                        <? } ?>
 						</ul>
 					</li>
 				</ul>
